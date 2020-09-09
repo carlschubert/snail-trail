@@ -5,7 +5,7 @@ class SnailsController < ApplicationController
   # GET /snails.json
   def index
     StackProf.run(mode: :cpu, out: 'tmp/stackprof-cpu-myapp.dump', raw: true) do
-      @snails = Snail.all
+      @snails = Snail.preload(:trails).all
 
       render :index
     end
