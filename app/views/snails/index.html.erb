@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Snails</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Species</th>
+      <th>Age</th>
+      <th>Total Trail Length</th>
+      <th>Longest Trail</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @snails.each do |snail| %>
+      <tr>
+        <td><%= snail.name %></td>
+        <td><%= snail.species %></td>
+        <td><%= snail.age %></td>
+        <td><%= snail.total_trail_length %></td>
+        <td><%= snail.longest_trail.length %></td>
+        <td><%= link_to 'Show', snail %></td>
+        <td><%= link_to 'Edit', edit_snail_path(snail) %></td>
+        <td><%= link_to 'Destroy', snail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Snail', new_snail_path %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @snail.name %>
+</p>
+
+<p>
+  <strong>Species:</strong>
+  <%= @snail.species %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @snail.age %>
+</p>
+
+<%= link_to 'Edit', edit_snail_path(@snail) %> |
+<%= link_to 'Back', snails_path %>

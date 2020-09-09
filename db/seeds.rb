@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+50.times do
+  snail = Snail.create(name: Faker::Name.name, age: rand(1..10), species: Faker::Creature::Animal.name)
+
+  rand(500..1000).times do
+    snail.trails.create(length: rand(1..10_000), vector: 'NE')
+  end
+end
