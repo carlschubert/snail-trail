@@ -4,7 +4,11 @@ class SnailsController < ApplicationController
   # GET /snails
   # GET /snails.json
   def index
-    @snails = Snail.all
+    StackProf.run(mode: :cpu, out: 'tmp/stackprof-cpu-myapp.dump', raw: true) do
+      @snails = Snail.all
+
+      render :index
+    end
   end
 
   # GET /snails/1
